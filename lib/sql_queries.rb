@@ -15,9 +15,13 @@ def selects_user_names_and_amounts_of_all_pledges_grouped_by_name_then_orders_th
 end
 
 def selects_the_category_names_and_pledge_amounts_of_all_pledges_in_the_music_category
-  SELECT projects.category FROM pledges on 
+  "SELECT projects.category, SUM(pledges.amount) FROM pledges on pledges.product_id = projects.id HAVING projects.category = 'music'"
 end
 
 def selects_the_category_name_and_the_sum_total_of_the_all_its_pledges_for_the_books_category
   "Write your SQL query Here"
 end
+
+# CREATE TABLE projects (id  INTEGER PRIMARY KEY, title TEXT, category TEXT, funding_goal INTEGER, start_date TEXT, end_date TEXT);
+# CREATE TABLE users (id  INTEGER PRIMARY KEY, name TEXT, age INTEGER);
+# CREATE TABLE pledges (id  INTEGER PRIMARY KEY, amount INTEGER, user_id INTEGER, project_id INTEGER);
